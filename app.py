@@ -68,7 +68,8 @@ def edit(id:int):
             db.session.commit()
             return redirect("/")
         except Exception as e:
-            return f"ERROR:{e}"
+            print(f"ERROR:{e}")
+            return "Error"
     else:
         return render_template('edit.html', task=task)
 
