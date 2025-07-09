@@ -1,13 +1,16 @@
+<!-- 定义了整个网页的框架，让所有页面（如 index.html, edit.html 等）可以复用结构和样式 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    {% block head %}{% endblock %}
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
-    <h1>Welcome to the app</h1>
-    {% block body %}{% endblock %}
+    <h1>Welcome to the app</h1>  <!-- 这句话因为在base里面， 所以会出现在每个网页里 -->
+    {% block body %}
+    {% endblock %}
 </body>
 </html>

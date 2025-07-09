@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %} <!-- 注明了是在base.html的基础上进行编辑的-->
 
 {% block head %}
 <title>Task Smask</title>
@@ -13,14 +13,18 @@
     {% else %}
     <table>
         <tr>
+            <th>#</th>
             <th>Task</th>
-            <th>Added</th>
+            <th>Complete</th>
+            <th>Due Date</th>
             <th>Actions</th>
         </tr>
         {% for task in tasks %}
             <tr>
+                <td>{{task.id}}</td>
                 <td>{{task.content}}</td>
-                <td>{{task.created.strftime("%Y-%m-%d")}}</td>
+                <td>{{task.complete}}</td>
+                <td>{{task.duedate.strftime("%Y-%m-%d")}}</td>
                 <td>
                     <a href="/delete/{{task.id}}">Delete</a>
                     <br/>
@@ -31,7 +35,15 @@
     </table>
     {% endif %}
     <form action="/" method="POST">
+        <label for="content">Task</label>
         <input type="text" name="content" id="content">
+
+        <label for="complete">Complete</label>
+        <input type="text" name="complete" id="complete">
+
+        <label for="duedate">Due Date</label>
+        <input type="date" name="duedate" id="duedate">
+
         <input type="submit" value="Add Task" id="btn_add" />
     </form>
 
